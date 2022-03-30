@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="org.isal.html-emmet.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="org.isal.html-emmet.commands.category"
+            name="Sample Command"
+            id="org.isal.html-emmet.commands.sampleCommand">
+      </command>
+      <command
+            id="org.isal.html-emmet.command1"
+            name="Todo">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.isal.htmlemmet.handlers.SampleHandler"
+            commandId="org.isal.html-emmet.commands.sampleCommand">
+      </handler>
+      <handler
+            class="org.isal.htmlemmet.handlers.Frame"
+            commandId="org.isal.html-emmet.command1">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="org.isal.html-emmet.commands.sampleCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="org.isal.html-emmet.menus.sampleMenu"
+               label="Todo"
+               mnemonic="M">
+            <command
+                  commandId="org.isal.html-emmet.commands.sampleCommand"
+                  id="org.isal.html-emmet.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+            <command
+                  commandId="org.isal.html-emmet.command1"
+                  label="Your Todo"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="org.isal.html-emmet.toolbars.sampleToolbar">
+            <command
+                  id="org.isal.html-emmet.toolbars.sampleCommand"
+                  commandId="org.isal.html-emmet.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
